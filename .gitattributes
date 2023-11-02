@@ -1,0 +1,5 @@
+* text=auto
+
+LICENSE eol=crlf
+
+*.bat eol=crlf
