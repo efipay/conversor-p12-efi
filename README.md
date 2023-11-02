@@ -1,5 +1,7 @@
 <h1 align="center">Conversor de Certificado .p12 para .pem</h1>
 
+![Banner APIs Efí Pay](https://gnetbr.com/BJgSIUhlYs)
+
 Este é um utilitário simples e eficiente para converter certificados no formato .p12 para o formato .pem em ambiente Windows.
 
 ## Como usar
@@ -10,8 +12,8 @@ Siga estas etapas para converter um certificado .p12 em um certificado .pem:
 
 2. **Executar o Script**:
    - Execute o arquivo `conversor_p12_para_pem.bat`.
+   - Certifique-se de que o arquivo .p12 esteja no mesmo diretório que o script.
    - O script solicitará que você insira o nome do arquivo .p12 que deseja converter.
-   - Certifique-se de que o arquivo .p12 esteja no mesmo diretório que o script ou forneça o caminho completo do arquivo .p12.
 
 4. **Resultados**:
    - O arquivo .pem gerado terá o mesmo nome do arquivo .p12, com a extensão .pem.
