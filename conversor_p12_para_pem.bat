@@ -30,9 +30,12 @@ if not exist "!p12_file!" (
   exit /b
 )
 
+REM Solicita a senha do certificado
+set /p cert_password=Digite a senha do certificado (ou pressione Enter para senha vazia):
+
 REM Executa a conversão para .pem
-set "output_file=!p12_file:.p12=.pem!"
-"%openssl%" pkcs12 -in "!p12_file!" -out "!output_file!" -nodes -password pass:""
+set "output_file=!p12_file:.p12=_cert.pem!"
+"%openssl%" pkcs12 -in "!p12_file!" -out "!output_file!" -clcerts -nodes -passin pass:"%cert_password%"
 if %errorlevel% neq 0 (
   echo Falha na conversão do certificado.
   pause
@@ -40,4 +43,21 @@ if %errorlevel% neq 0 (
 )
 
 echo Certificado convertido com sucesso. O arquivo "!output_file!" foi criado.
+
+REM Verifica se o usuário deseja separar a chave privada
+set /p separate_key=Você deseja separar a chave privada em um arquivo separado? (s/n):
+
+if /i "!separate_key!" equ "S" (
+  set "key_file=!p12_file:.p12=_key.pem!"
+  "%openssl%" pkcs12 -in "!p12_file!" -out "!key_file!" -nocerts -nodes -passin pass:"%cert_password%"
+  if %errorlevel% neq 0 (
+    echo Falha na conversão da chave privada.
+    pause
+    exit /b
+  )
+  echo Chave privada separada com sucesso. O arquivo "!key_file!" foi criado.
+) else (
+  echo A chave privada foi mantida no arquivo "!output_file!".
+)
+
 pause
