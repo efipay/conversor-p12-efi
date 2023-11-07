@@ -2,7 +2,7 @@
 
 ![Banner APIs Efí Pay](https://gnetbr.com/BJgSIUhlYs)
 
-Este é um utilitário simples e eficiente para converter certificados no formato .p12 para o formato .pem em ambiente Windows.
+Todas as requisições da API Pix, e outras APIs da Efí, devem conter um certificado de segurança para autenticação. Mas algumas linguagens de programação exigem que ele esteja em formato .pem. Para isso, disponibilizamos este utilitário simples e eficiente para converter certificados no formato .p12 para o formato .pem, em ambiente Windows.
 
 ## Como usar
 
@@ -14,10 +14,17 @@ Siga estas etapas para converter um certificado .p12 em um certificado .pem:
    - Execute o arquivo `conversor_p12_para_pem.bat`.
    - Certifique-se de que o arquivo .p12 esteja no mesmo diretório que o script.
    - O script solicitará que você insira o nome do arquivo .p12 que deseja converter.
+   - Se o arquivo .p12 estiver protegido por senha, o script solicitará que você insira a senha do certificado. Se você não inserir uma senha, o script considerará uma senha vazia "".
 
 4. **Resultados**:
    - O arquivo .pem gerado terá o mesmo nome do arquivo .p12, com a extensão .pem.
    - O script irá converter o arquivo .p12 para .pem no mesmo diretório.
+
+5. **Separar a Chave Privada** (opcional):
+   - Isso é útil em linguagens de programação como C/C++, Delphi, Go, dentre outras, onde você pode precisar da chave privada separadamente.
+   - Após a conversão do certificado, o script perguntará se você deseja separar a chave privada em um arquivo separado. Responda "S" ou "s" para sim.
+   - Se sim, a chave privada será exportada para um arquivo separado com o mesmo nome do arquivo .p12, mas com a extensão "_key.pem".
+   - Se não, a chave privada será mantida no arquivo .pem gerado.
 
 ## Segurança
 
