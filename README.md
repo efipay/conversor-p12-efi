@@ -4,6 +4,8 @@
 
 Todas as requisições da API Pix, e outras APIs da Efí, devem conter um certificado de segurança para autenticação. Mas algumas linguagens de programação exigem que ele esteja em formato .pem. Para isso, disponibilizamos este utilitário simples e eficiente para converter certificados no formato .p12 para o formato .pem, em ambiente Windows.
 
+![Convertendo certificado .p12](https://sejaefi.link/rJefHabFQp)
+
 ## Como usar
 
 Siga estas etapas para converter um certificado .p12 em um certificado .pem:
